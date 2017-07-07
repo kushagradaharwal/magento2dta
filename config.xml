@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Phoenix
+ * @package    Phoenix_Clickandbuy
+ * @copyright  Copyright (c) 2009 Phoenix Medien GmbH & Co. KG (http://www.phoenix-medien.de)
+ */
+-->
+<config>
+    <modules>
+        <Phoenix_Clickandbuy>
+            <version>1.2.0</version>
+        </Phoenix_Clickandbuy>
+    </modules>
+
+    <global>
+        <models>
+            <clickandbuy>
+                <class>Phoenix_Clickandbuy_Model</class>
+            </clickandbuy>
+        </models>
+        <helpers>
+            <clickandbuy>
+                <class>Phoenix_Clickandbuy_Helper</class>
+            </clickandbuy>
+        </helpers>
+        <resources>
+            <clickandbuy_setup>
+                <setup>
+                    <module>Phoenix_Clickandbuy</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </clickandbuy_setup>
+            <clickandbuy_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </clickandbuy_write>
+            <clickandbuy_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </clickandbuy_read>
+        </resources>
+        <blocks>
+            <clickandbuy><class>Phoenix_Clickandbuy_Block</class></clickandbuy>
+        </blocks>
+    </global>
+
+    <frontend>
+        <routers>
+            <clickandbuy>
+                <use>standard</use>
+                <args>
+                    <module>Phoenix_Clickandbuy</module>
+                    <frontName>clickandbuy</frontName>
+                </args>
+            </clickandbuy>
+        </routers>
+        <translate>
+            <modules>
+                <Phoenix_Clickandbuy>
+                    <files>
+                        <default>Phoenix_Clickandbuy.csv</default>
+                    </files>
+                </Phoenix_Clickandbuy>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <clickandbuy>
+                    <file>clickandbuy.xml</file>
+                </clickandbuy>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Phoenix_Clickandbuy>
+                    <files>
+                        <default>Phoenix_Clickandbuy.csv</default>
+                    </files>
+                </Phoenix_Clickandbuy>
+            </modules>
+        </translate>
+    </adminhtml>
+	<phoenix>
+		<clickandbuy>
+			<verify_url>http://www.phoenix-medien.de/index.php?id=95</verify_url>
+		</clickandbuy>
+	</phoenix>
+    <default>
+        <payment>        
+            <clickandbuy>
+                <active>0</active>
+                <model>clickandbuy/clickandbuy</model>
+                <order_status>1</order_status>
+                <title>ClickandBuy</title>
+                <allowspecific>0</allowspecific>
+                <use_store_currency>0</use_store_currency>
+            </clickandbuy>
+        </payment>
+    </default> 
+</config>
